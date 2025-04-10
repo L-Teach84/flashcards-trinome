@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Incoterms Flashcards</title>
+    <title>Formule Trinôme Flashcards</title>
     <style>
         body {
             display: flex;
@@ -53,7 +53,7 @@
         }
 
         .flashcard-front {
-            background-color: #f78426;
+            background-color: #f726bf;
             font-weight: bold;
         }
 
@@ -94,16 +94,14 @@
 <body>
     <div class="flashcard" onclick="flipCard(this)">
         <div class="flashcard-inner">
-            <div class="flashcard-front" data-code="EXW">
+            <div class="flashcard-front" data-code="Prixtspt">
                 <div class="flashcard-content">
-                    <p>EXW</p>
-                    <p>(Ex-Works)</p>
+                    <p>Prix transport</p>
                 </div>
             </div>
             <div class="flashcard-back">
                 <div class="flashcard-content">
-                    <p>= Valeur marchandise</p>
-                    <p>+ Emballage</p>
+                    <p>= Coût de revient + marge</p>
                 </div>
             </div>
         </div>
@@ -131,26 +129,26 @@
             // Update the text content immediately
             if (flashcardFront) {
                 switch (flashcardFront.getAttribute('data-code').trim()) {
-                    case 'EXW':
-                        ShowFCACard()
+                    case 'Prixtspt':
+                        ShowCoûtrevientCard()
                         break;
-                    case 'FCA':
-                        ShowCPTCard()
+                    case 'Coûtrevient':
+                        ShowKmCard()
                         break;
-                    case 'CPT':
-                        ShowCIPCard()
+                    case 'Km':
+                        ShowHoraireCard()
                         break;
-                    case 'CIP':
-                        ShowDAPCard()
+                    case 'Horaire':
+                        ShowJourCard()
                         break;
-                    case 'DAP':
-                        ShowDPUCard()
+                    case 'Jour':
+                        ShowUtilCard()
                         break;
-                    case 'DPU':
-                        ShowDDPCard()
+                    case 'Util':
+                        ShowDuréeCard()
                         break;
-                    case 'DDP':
-                        ShowEXWCard()
+                    case 'Durée':
+                        ShowPrixtsptCard()
                         break;
               
                 }
@@ -175,26 +173,26 @@
             // Update the text content immediately
             if (flashcardFront) {
                 switch (flashcardFront.getAttribute('data-code').trim()) {
-                    case 'EXW':
-                        ShowDDPCard();
+                    case 'Prixtspt':
+                        ShowDuréeCard()
                         break;
-                    case 'FCA':
-                        ShowEXWCard();
+                    case 'Coûtrevient':
+                        ShowPrixtsptCard();
                         break;
-                    case 'CPT':
-                        ShowFCACard()
+                    case 'Km':
+                        ShowCoûtrevientCard()
                         break;
-                    case 'CIP':
-                        ShowCPTCard()
+                    case 'Horaire':
+                        ShowKmCard()
                         break;
-                    case 'DAP':
-                        ShowCIPCard()
+                    case 'Jour':
+                        ShowHoraireCard()
                         break;
-                    case 'DPU':
-                        ShowDAPCard()
+                    case 'Util':
+                        ShowJourCard()
                         break;
-                    case 'DDP':
-                        ShowDPUCard()
+                    case 'Durée':
+                        ShowUtilCard()
                         break;
                     
                         
@@ -207,63 +205,63 @@
             }, 300); // Delay to allow the transition to be applied
         }
 
-        function ShowEXWCard()
+        function ShowPrixtsptCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'EXW');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>EXW</p><p>(Ex-Works)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= Valeur marchandise</p><p>+ Emballage</p></div>';
+            flashcardFront.setAttribute('data-code', 'Prixtspt');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>Prix transport</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>Coût de revient + marge</p></div>';
         }
 
-        function ShowFCACard()
+        function ShowCoûtrevientCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'FCA');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>FCA</p><p>(Free Carrier)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= EXW</p><p>+ Chargement sur le 1er moyen de transport</p><p>+ Douane export</p><p>+ Pré-acheminement</p></div>';
+            flashcardFront.setAttribute('data-code', 'Coûtrevient');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>Coût de revient</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>Formule Trinôme</p><p>= Coût kilométrique</p><p>+ Coût horaire</p><p>+ Coût journalier</p></div>';
         }
 
-        function ShowCPTCard()
+        function ShowKmCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'CPT');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>CPT</p><p>(Carriage paid to)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= FCA</p><p>+ THC (selon Liner-Terms)</p><p>+ Transport principal</p><p>(fret de base + frais annexes/surcharges)</p></div>';
+            flashcardFront.setAttribute('data-code', 'Km');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>Coût kilométrique</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= Terme kilométrique</p><p>x nombre de km</p></div>';
         }
-        function ShowCIPCard()
+        function ShowHoraireCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'CIP');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>CIP</p><p>(Carriage insurance paid to)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= CPT</p><p>+ Assurance</p></div>';
+            flashcardFront.setAttribute('data-code', 'Horaire');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>Coût horaire</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= Terme horaire</p><p>x nombre heures de service</p><p>(conduite + autres temps)</p></div>';
         }
-        function ShowDAPCard()
+        function ShowJourCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'DAP');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>DAP</p><p>(Delivered at place)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= CIP</p><p>+ THC (selon Liner-Terms)</p><p>+ post-acheminement</p></div>';
+            flashcardFront.setAttribute('data-code', 'Jour');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>Coût journalier</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>=Terme journalier</p><p>x Nombre de jours d\'utilisation du véhicule</p></div>';
         }
-        function ShowDPUCard()
+        function ShowUtilCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'DPU');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>DPU</p><p>(Delivered at place unloaded)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= DAP</p><p>+ Déchargement usine acheteur</p></div>';
+            flashcardFront.setAttribute('data-code', 'Util');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>Nombre de jours d\'utilisation du véhicule</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= Temps de service en heures</p><p>/ temps de service moyen</p></div>';
         }
-        function ShowDDPCard()
+        function ShowDuréeCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'DDP');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>DDP</p><p>(Delivered duty paid)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= DAP</p><p>+ Liquidation douanière</p><p>+ Honoraires d\'agréé en douane (HAD)</p><p>+ TVA sur HAD</p></div>';
+            flashcardFront.setAttribute('data-code', 'Durée');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>Durée du trajet</p></p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= Nombre de km</p><p>/ vitesse moyenne</p></div>';
         }
 
     </script>
